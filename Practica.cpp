@@ -205,8 +205,8 @@ void fibonacciVersion2() {
         cout << suma << endl;
         //Comprobamos si ya hemos encontrado el numero deseado o si hemos encontrado un numero que lo ha superado
         if (suma >= numBuscado) {
-            encontrado = true;//Dentremos el ciclo en la siguiente iteracion
-            //Imprimiremos un mensaje adicional indicando si encontramos el numero o si el numero no se encuentra en la serie
+            encontrado = true;//Detendremos el ciclo en la siguiente iteracion
+            //Imprimiremos un mensaje adicional indicando si encontramos el numero, o si el numero no se encuentra en la serie
             if (suma == numBuscado) {
                 cout << "Numero Encontrado." << endl;
             }
