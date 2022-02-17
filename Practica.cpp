@@ -194,7 +194,7 @@ void fibonacciVersion2() {
     bool encontrado = false; //Variable de control para el funcionamiento del ciclo while
 
     cout << "----------" << endl << "----------" << endl;
-    cout << "Introdusca el valor hasta el cual se desglozara la serie de Fibonacci" << endl;
+    cout << "Introdusca el valor que se buscara, se desglozara la serie de Fibonacci hasta encontrarlo" << endl;
     cin >> numBuscado;
     cout << "Serie de Fibonacci:" << endl;
 
