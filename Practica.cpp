@@ -7,6 +7,7 @@ void fibonacci();
 void rombo();
 void pareimpar();
 void factorial();
+void fibonacciVersion2();
 
 int main()
 {
@@ -19,7 +20,7 @@ int main()
     //Se usa la variable boleana dentroDelMenu para controlar este ciclo
     while (dentroDelMenu) {
         //Imprime menu de opciones
-        cout << "Menu de Opciones:" << endl << "1. Serie de Fibonacci." << endl << "2. Area de Rombo." << endl << "3. Numero Par o Impar." << endl << "4. Factorial." << endl << "Ingresa el numero de la opcion deseada." << endl;
+        cout << "Menu de Opciones:" << endl << "1. Serie de Fibonacci, generacion de serie de acuerdo a la cantidad deseada." << endl << "2. Area de Rombo." << endl << "3. Numero Par o Impar." << endl << "4. Factorial." << endl << "5. Serie de Fibonacci, busqueda por numero deseado." << endl << "Ingresa el numero de la opcion deseada." << endl;
         //Ingresa la opcion deseada por el usuario
         cin >> opcion;
         //Se usa un switch para ejecutar el metodo deseado por el usuario
@@ -50,6 +51,13 @@ int main()
             dentroDelMenu = false;
             //Se llama al metodo correspondiente
             factorial();
+            break;
+
+        case 5:
+            //Al ingresar a esta opcion podemos cambiar el valor de la variable boleana para que el ciclo se detenga
+            dentroDelMenu = false;
+            //Se llama al metodo correspondiente
+            fibonacciVersion2();
             break;
         }
     }
@@ -171,6 +179,48 @@ void factorial() {
 
     //Imprimiremos el factorial
     cout << "El valor factorial es: " << valorFinal << endl;
+
+    //Retornamos al bloque donde se llamo al metodo
+    return;
+}
+
+//Comienza el bloque de codigo para Fibonacci para realizar busquedas por numero ingresado
+void fibonacciVersion2() {
+    //Inicializamos variables
+    int suma = 1; //Inicializaremos suma en 1 para auxiliarnos al momento de imprimir los valores
+    int auxiliar = 0; //Esta variable servira para realizar la adicion
+    int numAnterior = 0; //En esta variable almacenaremos el valor anterior de la secuencia
+    int numBuscado = 0; //En esta variable almacenaremos el numero deseado por el usuario
+    bool encontrado = false; //Variable de control para el funcionamiento del ciclo while
+
+    cout << "----------" << endl << "----------" << endl;
+    cout << "Introdusca el valor hasta el cual se desglozara la serie de Fibonacci" << endl;
+    cin >> numBuscado;
+    cout << "Serie de Fibonacci:" << endl;
+
+    //Se usa el ciclo While para generar la secuencia de fibonacci, usaremos el boolean encontrado para controlarlo
+    while (encontrado == false)
+    {
+        //Imprimiremos el valor actual de suma
+        cout << suma << endl;
+        //Comprobamos si ya hemos encontrado el numero deseado o si hemos encontrado un numero que lo ha superado
+        if (suma >= numBuscado) {
+            encontrado = true;//Dentremos el ciclo en la siguiente iteracion
+            //Imprimiremos un mensaje adicional indicando si encontramos el numero o si el numero no se encuentra en la serie
+            if (suma == numBuscado) {
+                cout << "Numero Encontrado." << endl;
+            }
+            else {
+                cout << "El Numero no aparece en la serie." << endl;
+            }
+        }
+        //Guardaremos el valor actual de la suma en numero anterior para su uso posterior
+        numAnterior = suma;
+        //Incrementaremos el valor de la suma agregando el valor de auxiliar
+        suma = suma + auxiliar;
+        //Asignaremos el valor del numero anterior al auxiliar para usarlo en la siguiente iteracion
+        auxiliar = numAnterior;
+    }
 
     //Retornamos al bloque donde se llamo al metodo
     return;
